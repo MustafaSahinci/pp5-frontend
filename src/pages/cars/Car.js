@@ -12,7 +12,7 @@ const Car = (props) => {
     owner,
     profile_id,
     profile_image,
-    comments_count,
+    biddings_count,
     saves_count,
     save_id,
     title,
@@ -106,7 +106,7 @@ const Car = (props) => {
           <Link to={`/cars/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {comments_count}
+          {biddings_count}
         </div>
       </Card.Body>
     </Card>
