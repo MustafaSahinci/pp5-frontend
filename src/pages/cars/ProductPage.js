@@ -14,6 +14,8 @@ import { useLocation } from 'react-router';
 import { axiosReq } from '../../api/axiosDefaults';
 
 import NoResults from '../../assets/no-results.png';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 function ProductPage({ message, filter = '' }) {
   const [cars, setCars] = useState({ results: [] });
@@ -63,9 +65,15 @@ function ProductPage({ message, filter = '' }) {
         {hasLoaded ? (
           <>
             {cars.results.length ? (
-              cars.results.map((car) => (
-                <Car key={car.id} {...car} setCars={setCars} />
-              ))
+              <InfiniteScroll
+                children={cars.results.map((car) => (
+                  <Car key={car.id} {...car} setCars={setCars} />
+                ))}
+                dataLength={cars.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!cars.next}
+                next={() => fetchMoreData(cars, setCars)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
