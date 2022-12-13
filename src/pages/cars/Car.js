@@ -20,7 +20,7 @@ const Car = (props) => {
     image,
     updated_at,
     carPage,
-    setPosts,
+    setCars,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -29,9 +29,9 @@ const Car = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/saves/", { car: id });
-      setPosts((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((car) => {
+      setCars((prevCars) => ({
+        ...prevCars,
+        results: prevCars.results.map((car) => {
           return car.id === id
             ? { ...car, saves_count: car.saves_count + 1, save_id: data.id }
             : car;
@@ -45,9 +45,9 @@ const Car = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/saves/${save_id}/`);
-      setPosts((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((car) => {
+      setCars((prevCars) => ({
+        ...prevCars,
+        results: prevCars.results.map((car) => {
           return car.id === id
             ? { ...car, saves_count: car.saves_count - 1, save_id: null }
             : car;

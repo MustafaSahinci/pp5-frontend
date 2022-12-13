@@ -22,19 +22,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 function CarCreateForm() {
   const [errors, setErrors] = useState({});
 
-  const [postData, setPostData] = useState({
+  const [carData, setCarData] = useState({
     title: "",
     content: "",
     image: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image } = carData;
 
   const imageInput = useRef(null);
   const history = useHistory();
 
   const handleChange = (event) => {
-    setPostData({
-      ...postData,
+    setCarData({
+      ...carData,
       [event.target.name]: event.target.value,
     });
   };
@@ -42,8 +42,8 @@ function CarCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setPostData({
-        ...postData,
+      setCarData({
+        ...carData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
