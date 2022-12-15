@@ -1,10 +1,12 @@
-import React from "react";
-import styles from "../../styles/Car.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import React from 'react';
+import styles from '../../styles/Car.module.css';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Avatar from '../../components/Avatar';
+import { axiosRes } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropdown';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Car = (props) => {
   const {
@@ -25,10 +27,24 @@ const Car = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/cars/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/cars/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/saves/", { car: id });
+      const { data } = await axiosRes.post('/saves/', { car: id });
       setCars((prevCars) => ({
         ...prevCars,
         results: prevCars.results.map((car) => {
@@ -68,7 +84,12 @@ const Car = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && carPage && "..."}
+            {is_owner && carPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
