@@ -10,6 +10,7 @@ import CarPage from './pages/cars/CarPage';
 import ProductPage from './pages/cars/ProductPage';
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import ProfilePage from './pages/profiles/ProfilePage';
+import CarEditForm from './pages/cars/CarEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -52,6 +53,7 @@ function App() {
           <Route exact path="/cars/create" render={() => <CarCreateForm /> } />
           <Route exact path="/cars/:id" render={() => <CarPage /> } />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/cars/:id/edit" render={() => <CarEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
