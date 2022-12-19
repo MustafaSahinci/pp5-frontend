@@ -14,6 +14,10 @@ import BiddingCreateForm from '../biddings/BiddingCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Bidding from '../biddings/Bidding';
 
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Asset from '../../components/Asset';
+import { fetchMoreData } from '../../utils/utils';
+
 function CarPage() {
   const { id } = useParams();
   const [car, setCar] = useState({ results: [] });
@@ -57,14 +61,20 @@ function CarPage() {
             'Biddings'
           ) : null}
           {biddings.results.length ? (
-            biddings.results.map((bidding) => (
-              <Bidding
-                key={bidding.id}
-                {...bidding}
-                setCar={setCar}
-                setBiddings={setBiddings}
-              />
-            ))
+            <InfiniteScroll
+              children={biddings.results.map((bidding) => (
+                <Bidding
+                  key={bidding.id}
+                  {...bidding}
+                  setCar={setCar}
+                  setBiddings={setBiddings}
+                />
+              ))}
+              dataLength={biddings.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!biddings.next}
+              next={() => fetchMoreData(biddings, setBiddings)}
+            />
           ) : currentUser ? (
             <span>No biddings yet, be the first to bid!</span>
           ) : (
