@@ -1,29 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+import Image from 'react-bootstrap/Image';
 
-import styles from "../../styles/CarCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/CarCreateEditForm.module.css';
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
 
-import { useHistory, useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory, useParams } from 'react-router';
+import { axiosReq } from '../../api/axiosDefaults';
+import JoditEditor from 'jodit-react';
 
 function CarEditForm() {
+  const editor = useRef(null);
   const [errors, setErrors] = useState({});
 
   const [carData, setCarData] = useState({
-    title: "",
-    content: "",
-    image: "",
+    title: '',
+    content: '',
+    price: '',
+    image: '',
   });
-  const { title, content, image } = carData;
+  const { title, content, price, image } = carData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -33,9 +36,11 @@ function CarEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/cars/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, price, image, is_owner } = data;
 
-        is_owner ? setCarData({ title, content, image }) : history.push("/");
+        is_owner
+          ? setCarData({ title, content, price, image })
+          : history.push('/');
       } catch (err) {
         console.log(err);
       }
@@ -48,6 +53,13 @@ function CarEditForm() {
     setCarData({
       ...carData,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleChangeContent = (data) => {
+    setCarData({
+      ...carData,
+      'content': data,
     });
   };
 
@@ -65,11 +77,12 @@ function CarEditForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("content", content);
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('price', price);
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+      formData.append('image', imageInput.current.files[0]);
     }
 
     try {
@@ -100,7 +113,7 @@ function CarEditForm() {
         </Alert>
       ))}
 
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
           as="textarea"
@@ -111,6 +124,37 @@ function CarEditForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))} */}
+
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <JoditEditor
+          ref={editor}
+          value={content}
+          name="content"
+          onChange={(newContent) => handleChangeContent(newContent)}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Price</Form.Label>
+        <Form.Control
+          type="number"
+          min="0"
+          name="price"
+          value={price}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

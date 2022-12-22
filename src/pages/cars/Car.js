@@ -7,6 +7,7 @@ import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import parse from 'html-react-parser';
 
 const Car = (props) => {
   const {
@@ -19,6 +20,7 @@ const Car = (props) => {
     save_id,
     title,
     content,
+    price,
     image,
     updated_at,
     carPage,
@@ -98,7 +100,8 @@ const Car = (props) => {
       </Link>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {content && <Card.Text>{parse(content)}</Card.Text>}
+        {price && <Card.Text>$ {price}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

@@ -1,35 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+import Image from 'react-bootstrap/Image';
 
-import Asset from "../../components/Asset";
+import Asset from '../../components/Asset';
 
-import Upload from "../../assets/upload.png";
+import Upload from '../../assets/upload.png';
 
-import styles from "../../styles/CarCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/CarCreateEditForm.module.css';
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
 
-import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
+import { useHistory } from 'react-router';
+import { axiosReq } from '../../api/axiosDefaults';
+import { useRedirect } from '../../hooks/useRedirect';
+import { InputGroup } from 'react-bootstrap';
+import JoditEditor from 'jodit-react';
 
 function CarCreateForm() {
-  useRedirect('loggedOut')
+  const editor = useRef(null);
+  useRedirect('loggedOut');
   const [errors, setErrors] = useState({});
 
   const [carData, setCarData] = useState({
-    title: "",
-    content: "",
-    image: "",
+    title: '',
+    content: '',
+    price: '',
+    image: '',
   });
-  const { title, content, image } = carData;
+  const { title, content, price, image } = carData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -38,6 +42,13 @@ function CarCreateForm() {
     setCarData({
       ...carData,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleChangeContent = (data) => {
+    setCarData({
+      ...carData,
+      'content': data,
     });
   };
 
@@ -55,12 +66,13 @@ function CarCreateForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('price', price);
+    formData.append('image', imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.post("/cars/", formData);
+      const { data } = await axiosReq.post('/cars/', formData);
       history.push(`/cars/${data.id}`);
     } catch (err) {
       console.log(err);
@@ -87,7 +99,7 @@ function CarCreateForm() {
         </Alert>
       ))}
 
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
           as="textarea"
@@ -98,6 +110,40 @@ function CarCreateForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))} */}
+
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <JoditEditor
+          ref={editor}
+          value={content}
+          name="content"
+          onChange={(newContent) => handleChangeContent(newContent)}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Price</Form.Label>
+        <InputGroup>
+          <InputGroup.Text>$</InputGroup.Text>
+          <Form.Control
+            type="number"
+            name="price"
+            min="0"
+            value={price}
+            onChange={handleChange}
+          />
+        </InputGroup>
+      </Form.Group>
+      {errors?.price?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

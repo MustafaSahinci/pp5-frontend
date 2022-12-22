@@ -48,13 +48,14 @@ function BiddingCreateForm(props) {
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
+          <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
-            className={styles.Form}
+            // className={styles.Form}
             placeholder="my Bid..."
-            as="textarea"
+            type="number"
+            min="0"
             value={content}
             onChange={handleChange}
-            rows={2}
           />
         </InputGroup>
       </Form.Group>
