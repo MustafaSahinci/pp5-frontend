@@ -50,7 +50,7 @@ function BiddingCreateForm(props) {
           </Link>
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
-            // className={styles.Form}
+            className={styles.Form}
             placeholder="my Bid..."
             type="number"
             min="0"
