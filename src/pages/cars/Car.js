@@ -16,6 +16,7 @@ const Car = (props, { product }) => {
     owner,
     profile_id,
     profile_image,
+    comments_count,
     biddings_count,
     saves_count,
     save_id,
@@ -130,15 +131,15 @@ const Car = (props, { product }) => {
           <>
             {title && <Card.Title className="text-center">{title}</Card.Title>}
             {price && <Card.Text>$ {price}</Card.Text>}
-            {year && <Card.Text>{year}</Card.Text>}
-            {km && <Card.Text>{km} km</Card.Text>}
+            {year && km && <Card.Text>{year}      {km} km</Card.Text>}
+            {/* {km && <Card.Text>{km} km</Card.Text>} */}
           </>
         ) : (
           <>
             {title && <Card.Title className="text-center">{title}</Card.Title>}
             {price && <Card.Text>$ {price}</Card.Text>}
-            {year && <Card.Text>{year}</Card.Text>}
-            {km && <Card.Text>{km} km</Card.Text>}
+            {year && km && <Card.Text>{year} {km} km</Card.Text>}
+            {/* {km && <Card.Text>{km} km</Card.Text>} */}
             {content && <Card.Text>{parse(content)}</Card.Text>}
           </>
         )}
@@ -148,7 +149,7 @@ const Car = (props, { product }) => {
               placement="top"
               overlay={<Tooltip>You can't like your own cars!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fas fa-heart" />
             </OverlayTrigger>
           ) : save_id ? (
             <span onClick={handleUnlike}>
@@ -156,19 +157,23 @@ const Car = (props, { product }) => {
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+              <i className={`fas fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fas fa-heart" />
             </OverlayTrigger>
           )}
           {saves_count}
           <Link to={`/cars/${id}`}>
-            <i className="far fa-comments" />
+            <i className="fas fa-comments" />
+          </Link>
+          {comments_count}
+          <Link to={`/cars/${id}`}>
+            <i className="fas fa-gavel"/>
           </Link>
           {biddings_count}
         </div>

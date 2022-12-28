@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { axiosRes } from '../../api/axiosDefaults';
 
-import styles from '../../styles/BiddingCreateEditForm.module.css';
+import styles from '../../styles/CommentCreateEditForm.module.css';
 
-function BiddingEditForm(props) {
-  const { id, content, setShowEditForm, setBiddings } = props;
+function CommentEditForm(props) {
+  const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
 
@@ -17,24 +17,24 @@ function BiddingEditForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosRes.put(`/biddings/${id}/`, {
+      await axiosRes.put(`/comments/${id}/`, {
         content: formContent.trim(),
       });
-      setBiddings((prevBiddings) => ({
-        ...prevBiddings,
-        results: prevBiddings.results.map((bidding) => {
-          return bidding.id === id
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.map((comment) => {
+          return comment.id === id
             ? {
-                ...bidding,
+                ...comment,
                 content: formContent.trim(),
                 updated_at: 'now',
               }
-            : bidding;
+            : comment;
         }),
       }));
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -69,4 +69,4 @@ function BiddingEditForm(props) {
   );
 }
 
-export default BiddingEditForm;
+export default CommentEditForm;

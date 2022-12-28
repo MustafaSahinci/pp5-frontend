@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import styles from '../../styles/BiddingCreateEditForm.module.css';
+import styles from '../../styles/CommentCreateEditForm.module.css';
 import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
 
-function BiddingCreateForm(props) {
-  const { car, setCar, setBiddings, profileImage, profile_id } = props;
+function CommentCreateForm(props) {
+  const { car, setCar, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState('');
 
   const handleChange = (event) => {
@@ -19,25 +19,25 @@ function BiddingCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post('/biddings/', {
+      const { data } = await axiosRes.post('/comments/', {
         content,
         car,
       });
-      setBiddings((prevBiddings) => ({
-        ...prevBiddings,
-        results: [data, ...prevBiddings.results],
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: [data, ...prevComments.results],
       }));
       setCar((prevCar) => ({
         results: [
           {
             ...prevCar.results[0],
-            biddings_count: prevCar.results[0].biddings_count + 1,
+            comments_count: prevCar.results[0].comments_count + 1,
           },
         ],
       }));
       setContent('');
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -48,14 +48,13 @@ function BiddingCreateForm(props) {
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
-          <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
             className={styles.Form}
-            placeholder="my Bid..."
-            type="number"
-            min="0"
+            placeholder="my comment..."
+            as="textarea"
             value={content}
             onChange={handleChange}
+            rows={2}
           />
         </InputGroup>
       </Form.Group>
@@ -64,10 +63,10 @@ function BiddingCreateForm(props) {
         disabled={!content.trim()}
         type="submit"
       >
-        bid
+        post
       </button>
     </Form>
   );
 }
 
-export default BiddingCreateForm;
+export default CommentCreateForm;

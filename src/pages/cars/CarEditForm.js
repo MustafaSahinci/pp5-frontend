@@ -347,7 +347,7 @@ function CarEditForm() {
               </Alert>
             ))}
 
-<Form.Group className="text-center">
+            <Form.Group className="text-center">
               <figure>
                 <Image className={appStyles.Image} src={image4} rounded />
               </figure>

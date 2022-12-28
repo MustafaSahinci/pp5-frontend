@@ -10,8 +10,10 @@ import { axiosReq } from '../../api/axiosDefaults';
 import Car from './Car';
 import PopularProfiles from '../profiles/PopularProfiles';
 
+import CommentCreateForm from '../comments/CommentCreateForm';
 import BiddingCreateForm from '../biddings/BiddingCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import Comment from '../comments/comment';
 import Bidding from '../biddings/Bidding';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -25,16 +27,20 @@ function CarPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [biddings, setBiddings] = useState({ results: [] });
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: car }, { data: biddings }] = await Promise.all([
-          axiosReq.get(`/cars/${id}`),
-          axiosReq.get(`/biddings/?car=${id}`),
-        ]);
+        const [{ data: car }, { data: biddings }, { data: comments }] =
+          await Promise.all([
+            axiosReq.get(`/cars/${id}`),
+            axiosReq.get(`/biddings/?car=${id}`),
+            axiosReq.get(`/comments/?car=${id}`),
+          ]);
         setCar({ results: [car] });
         setBiddings(biddings);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -50,6 +56,42 @@ function CarPage() {
         <Car {...car.results[0]} setCars={setCar} carPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              car={id}
+              setCar={setCar}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            'comments'
+          ) : null}
+          {comments.results.length ? (
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setCar={setCar}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
+        </Container>
+      </Col>
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
+        <Container className={appStyles.Content}>
+          {currentUser ? (
             <BiddingCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -58,7 +100,7 @@ function CarPage() {
               setBiddings={setBiddings}
             />
           ) : biddings.results.length ? (
-            'Biddings'
+            'biddings'
           ) : null}
           {biddings.results.length ? (
             <InfiniteScroll
@@ -81,9 +123,6 @@ function CarPage() {
             <span>No biddings... yet</span>
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );
