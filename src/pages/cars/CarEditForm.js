@@ -15,6 +15,7 @@ import btnStyles from '../../styles/Button.module.css';
 import { useHistory, useParams } from 'react-router';
 import { axiosReq } from '../../api/axiosDefaults';
 import JoditEditor from 'jodit-react';
+import { InputGroup } from 'react-bootstrap';
 
 function CarEditForm() {
   const editor = useRef(null);
@@ -24,11 +25,20 @@ function CarEditForm() {
     title: '',
     content: '',
     price: '',
+    year: '',
+    km: '',
     image: '',
+    image2: '',
+    image3: '',
+    image4: '',
   });
-  const { title, content, price, image } = carData;
+  const { title, content, price, year, km, image, image2, image3, image4 } =
+    carData;
 
   const imageInput = useRef(null);
+  const imageInput2 = useRef(null);
+  const imageInput3 = useRef(null);
+  const imageInput4 = useRef(null);
   const history = useHistory();
   const { id } = useParams();
 
@@ -36,10 +46,31 @@ function CarEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/cars/${id}/`);
-        const { title, content, price, image, is_owner } = data;
+        const {
+          title,
+          content,
+          price,
+          year,
+          km,
+          image,
+          image2,
+          image3,
+          image4,
+          is_owner,
+        } = data;
 
         is_owner
-          ? setCarData({ title, content, price, image })
+          ? setCarData({
+              title,
+              content,
+              price,
+              year,
+              km,
+              image,
+              image2,
+              image3,
+              image4,
+            })
           : history.push('/');
       } catch (err) {
         console.log(err);
@@ -59,7 +90,7 @@ function CarEditForm() {
   const handleChangeContent = (data) => {
     setCarData({
       ...carData,
-      'content': data,
+      content: data,
     });
   };
 
@@ -73,6 +104,36 @@ function CarEditForm() {
     }
   };
 
+  const handleChangeImage2 = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image2);
+      setCarData({
+        ...carData,
+        image2: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
+  const handleChangeImage3 = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image3);
+      setCarData({
+        ...carData,
+        image3: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
+  const handleChangeImage4 = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image4);
+      setCarData({
+        ...carData,
+        image4: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -80,9 +141,14 @@ function CarEditForm() {
     formData.append('title', title);
     formData.append('content', content);
     formData.append('price', price);
+    formData.append('year', year);
+    formData.append('km', km);
 
     if (imageInput?.current?.files[0]) {
       formData.append('image', imageInput.current.files[0]);
+      formData.append('image2', imageInput2.current.files[0]);
+      formData.append('image3', imageInput3.current.files[0]);
+      formData.append('image4', imageInput4.current.files[0]);
     }
 
     try {
@@ -113,21 +179,61 @@ function CarEditForm() {
         </Alert>
       ))}
 
-      {/* <Form.Group>
-        <Form.Label>Content</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="content"
-          value={content}
-          onChange={handleChange}
-        />
+      <Form.Group>
+        <Form.Label>Price</Form.Label>
+        <InputGroup>
+          <InputGroup.Text>$</InputGroup.Text>
+          <Form.Control
+            type="number"
+            min="0"
+            name="price"
+            value={price}
+            onChange={handleChange}
+          />
+        </InputGroup>
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.price?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))} */}
+      ))}
+
+      <Form.Group>
+        <Form.Label>year</Form.Label>
+        <Form.Control
+          type="number"
+          min="0"
+          max="9999"
+          name="year"
+          value={year}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.year?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>km</Form.Label>
+        <InputGroup>
+          <Form.Control
+            type="number"
+            min="0"
+            max="999999"
+            name="km"
+            value={km}
+            onChange={handleChange}
+          />
+          <InputGroup.Text>km</InputGroup.Text>
+        </InputGroup>
+      </Form.Group>
+      {errors?.km?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -139,22 +245,6 @@ function CarEditForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group>
-        <Form.Label>Price</Form.Label>
-        <Form.Control
-          type="number"
-          min="0"
-          name="price"
-          value={price}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -200,6 +290,84 @@ function CarEditForm() {
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="text-center">
+              <figure>
+                <Image className={appStyles.Image} src={image2} rounded />
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload2"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
+
+              <Form.File
+                id="image-upload2"
+                accept="image/*"
+                onChange={handleChangeImage2}
+                ref={imageInput2}
+              />
+            </Form.Group>
+            {errors?.image2?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="text-center">
+              <figure>
+                <Image className={appStyles.Image} src={image3} rounded />
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload3"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
+
+              <Form.File
+                id="image-upload3"
+                accept="image/*"
+                onChange={handleChangeImage3}
+                ref={imageInput3}
+              />
+            </Form.Group>
+            {errors?.image3?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+<Form.Group className="text-center">
+              <figure>
+                <Image className={appStyles.Image} src={image4} rounded />
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload4"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
+
+              <Form.File
+                id="image-upload4"
+                accept="image/*"
+                onChange={handleChangeImage4}
+                ref={imageInput4}
+              />
+            </Form.Group>
+            {errors?.image4?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>

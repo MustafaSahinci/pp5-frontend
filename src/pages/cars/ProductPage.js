@@ -50,7 +50,7 @@ function ProductPage({ message, filter = '' }) {
       {cars.results.length ? (
         <InfiniteScroll
           children={cars.results.map((car) => (
-            <Car key={car.id} {...car} setCars={setCars} />
+            <Car key={car.id} {...car} setCars={setCars} product />
           ))}
           dataLength={cars.results.length}
           loader={<Asset spinner />}

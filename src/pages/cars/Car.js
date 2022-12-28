@@ -8,8 +8,9 @@ import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import parse from 'html-react-parser';
+import Carousel from 'react-bootstrap/Carousel';
 
-const Car = (props) => {
+const Car = (props, { product }) => {
   const {
     id,
     owner,
@@ -21,7 +22,12 @@ const Car = (props) => {
     title,
     content,
     price,
+    year,
+    km,
     image,
+    image2,
+    image3,
+    image4,
     updated_at,
     carPage,
     setCars,
@@ -95,13 +101,47 @@ const Car = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/cars/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link>
+      {product ? (
+        <Link to={`/cars/${id}`}>
+          <Card.Img src={image} alt={title} />
+        </Link>
+      ) : (
+        <Carousel interval={null}>
+          <Carousel.Item>
+            <Link to={`/cars/${id}`}>
+              <img className="d-block w-100" src={image} alt="image1" />
+            </Link>
+          </Carousel.Item>
+          {image2 ? (
+            <Carousel.Item>
+              <img className="d-block w-100" src={image2} alt="image2" />
+            </Carousel.Item>
+          ) : null}
+          <Carousel.Item>
+            <img className="d-block w-100" src={image3} alt="image3" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={image4} alt="image4" />
+          </Carousel.Item>
+        </Carousel>
+      )}
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{parse(content)}</Card.Text>}
-        {price && <Card.Text>$ {price}</Card.Text>}
+        {product ? (
+          <>
+            {title && <Card.Title className="text-center">{title}</Card.Title>}
+            {price && <Card.Text>$ {price}</Card.Text>}
+            {year && <Card.Text>{year}</Card.Text>}
+            {km && <Card.Text>{km} km</Card.Text>}
+          </>
+        ) : (
+          <>
+            {title && <Card.Title className="text-center">{title}</Card.Title>}
+            {price && <Card.Text>$ {price}</Card.Text>}
+            {year && <Card.Text>{year}</Card.Text>}
+            {km && <Card.Text>{km} km</Card.Text>}
+            {content && <Card.Text>{parse(content)}</Card.Text>}
+          </>
+        )}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
