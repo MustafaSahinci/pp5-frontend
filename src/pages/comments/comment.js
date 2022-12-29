@@ -44,7 +44,40 @@ const Comment = (props) => {
     } catch (err) {}
   };
 
-  return (
+  return is_owner ? (
+    <>
+      <hr />
+      <Media>
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+        )}
+        <Media.Body className="align-self-center mr-2">
+          <div className='d-flex justify-content-end'>
+            <span className={styles.Date2}>{updated_at}</span>
+            <span className={styles.Owner2}>{owner}</span>
+          </div>
+          {showEditForm ? (
+            <CommentEditForm
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileImage={profile_image}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
+          ) : (
+            <p className="d-flex justify-content-end">{content}</p>
+          )}
+        </Media.Body>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profile_image} />
+        </Link>
+      </Media>
+    </>
+  ) : (
     <>
       <hr />
       <Media>

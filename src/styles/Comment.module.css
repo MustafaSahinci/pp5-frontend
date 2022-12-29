@@ -8,3 +8,14 @@
   font-weight: lighter;
   color: #c1c1c5;
 }
+
+.Owner2 {
+  font-weight: bold;
+  color: #2142b2;
+}
+
+.Date2 {
+  font-weight: lighter;
+  color: #c1c1c5;
+  margin-right: 8px;
+}
