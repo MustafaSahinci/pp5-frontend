@@ -17,6 +17,7 @@ import NoResults from '../../assets/no-results.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PopularProfiles from '../profiles/PopularProfiles';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProductPage({ message, filter = '' }) {
   const [cars, setCars] = useState({ results: [] });
@@ -24,6 +25,7 @@ function ProductPage({ message, filter = '' }) {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState('');
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,7 +45,7 @@ function ProductPage({ message, filter = '' }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   const cards = hasLoaded ? (
     <>
