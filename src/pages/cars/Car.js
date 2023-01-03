@@ -130,15 +130,15 @@ const Car = (props, { product }) => {
         {product ? (
           <>
             {title && <Card.Title className="text-center">{title}</Card.Title>}
-            {price && <Card.Text>$ {price}</Card.Text>}
+            {price && <Card.Text>$ {`${Number({price}).toLocaleString("en")}`}</Card.Text>}
             {year && km && <Card.Text>{year}      {km} km</Card.Text>}
             {/* {km && <Card.Text>{km} km</Card.Text>} */}
           </>
         ) : (
           <>
             {title && <Card.Title className="text-center">{title}</Card.Title>}
-            {price && <Card.Text>$ {price}</Card.Text>}
-            {year && km && <Card.Text>{year} {km} km</Card.Text>}
+            {price && <Card.Text>$ {`${Number(price).toLocaleString("en")}`}</Card.Text>}
+            {year && km && <Card.Text>{year} {`${Number(km).toLocaleString("en")}`} km</Card.Text>}
             {/* {km && <Card.Text>{km} km</Card.Text>} */}
             {content && <Card.Text>{parse(content)}</Card.Text>}
           </>
