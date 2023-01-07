@@ -22,7 +22,7 @@ import { Button, Image } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from '../../assets/no-results.png';
-import Car from '../../components/Car';
+import Car2 from '../../components/Car2';
 import { ProfileEditDropdown } from '../../components/MoreDropdown';
 
 function ProfilePage() {
@@ -119,7 +119,7 @@ function ProfilePage() {
       {profileCars.results.length ? (
         <InfiniteScroll
           children={profileCars.results.map((car) => (
-            <Car key={car.id} {...car} setCars={setProfileCars} />
+            <Car2 key={car.id} {...car} setCars={setProfileCars} />
           ))}
           dataLength={profileCars.results.length}
           loader={<Asset spinner />}

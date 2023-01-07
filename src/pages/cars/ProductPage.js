@@ -17,7 +17,7 @@ import NoResults from '../../assets/no-results.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PopularProfiles from '../profiles/PopularProfiles';
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 function ProductPage({ message, filter = '' }) {
   const [cars, setCars] = useState({ results: [] });
@@ -52,7 +52,7 @@ function ProductPage({ message, filter = '' }) {
       {cars.results.length ? (
         <InfiniteScroll
           children={cars.results.map((car) => (
-            <Car2 product key={car.id} {...car} setCars={setCars} />
+            <Car2 key={car.id} {...car} setCars={setCars} />
           ))}
           dataLength={cars.results.length}
           loader={<Asset spinner />}
@@ -90,10 +90,12 @@ function ProductPage({ message, filter = '' }) {
             />
           </Form>
         </Col>
-        </Row>
-        <Row>
-        {Array.from({ length: 3 }).map((_, idx) => (
-        <Col>{cards}</Col>))}
+      </Row>
+      <Row>
+        <Col md={3}>{cards}</Col>
+        <Col md={3}>{cards}</Col>
+        <Col md={3}>{cards}</Col>
+
         <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
           <PopularProfiles />
         </Col>
