@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import appStyles from '../../App.module.css';
 import { useParams } from 'react-router';
 import { axiosReq } from '../../api/axiosDefaults';
-import Car from './Car';
+import Car from '../../components/Car';
 import PopularProfiles from '../profiles/PopularProfiles';
 
 import CommentCreateForm from '../comments/CommentCreateForm';

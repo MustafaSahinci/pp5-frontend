@@ -22,7 +22,7 @@ import { Button, Image } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from '../../assets/no-results.png';
-import Car from '../cars/Car';
+import Car from '../../components/Car';
 import { ProfileEditDropdown } from '../../components/MoreDropdown';
 
 function ProfilePage() {

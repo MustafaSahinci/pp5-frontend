@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
-import Car from './Car';
+import Car2 from '../../components/Car2';
 import Asset from '../../components/Asset';
 
 import appStyles from '../../App.module.css';
@@ -52,7 +52,7 @@ function ProductPage({ message, filter = '' }) {
       {cars.results.length ? (
         <InfiniteScroll
           children={cars.results.map((car) => (
-            <Car product key={car.id} {...car} setCars={setCars} />
+            <Car2 product key={car.id} {...car} setCars={setCars} />
           ))}
           dataLength={cars.results.length}
           loader={<Asset spinner />}

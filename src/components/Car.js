@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from '../../styles/Car.module.css';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from '../styles/Car.module.css';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Avatar from '../../components/Avatar';
-import { axiosRes } from '../../api/axiosDefaults';
-import { MoreDropdown } from '../../components/MoreDropdown';
+import Avatar from './Avatar';
+import { axiosRes } from '../api/axiosDefaults';
+import { MoreDropdown } from './MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import parse from 'html-react-parser';
 import Carousel from 'react-bootstrap/Carousel';
@@ -102,47 +102,31 @@ const Car = (props, { product }) => {
           </div>
         </Media>
       </Card.Body>
-      {product ? (
-        <Link to={`/cars/${id}`}>
-          <Card.Img src={image} alt={title} />
-        </Link>
-      ) : (
-        <Carousel interval={null}>
-          <Carousel.Item>
-            <Link to={`/cars/${id}`}>
-              <img className="d-block w-100" src={image} alt="image1" />
-            </Link>
-          </Carousel.Item>
-          {image2 ? (
-            <Carousel.Item>
-              <img className="d-block w-100" src={image2} alt="image2" />
-            </Carousel.Item>
-          ) : null}
-          <Carousel.Item>
-            <img className="d-block w-100" src={image3} alt="image3" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={image4} alt="image4" />
-          </Carousel.Item>
-        </Carousel>
-      )}
+      <Carousel interval={null}>
+        <Carousel.Item>
+          <img className="d-block w-100" src={image} alt="image1" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={image2} alt="image2" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={image3} alt="image3" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={image4} alt="image4" />
+        </Carousel.Item>
+      </Carousel>
       <Card.Body>
-        {product ? (
-          <>
-            {title && <Card.Title className="text-center">{title}</Card.Title>}
-            {price && <Card.Text>$ {`${Number({price}).toLocaleString("en")}`}</Card.Text>}
-            {year && km && <Card.Text>{year}      {km} km</Card.Text>}
-            {/* {km && <Card.Text>{km} km</Card.Text>} */}
-          </>
-        ) : (
-          <>
-            {title && <Card.Title className="text-center">{title}</Card.Title>}
-            {price && <Card.Text>$ {`${Number(price).toLocaleString("en")}`}</Card.Text>}
-            {year && km && <Card.Text>{year} {`${Number(km).toLocaleString("en")}`} km</Card.Text>}
-            {/* {km && <Card.Text>{km} km</Card.Text>} */}
-            {content && <Card.Text>{parse(content)}</Card.Text>}
-          </>
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {price && (
+          <Card.Text>$ {`${Number(price).toLocaleString('en')}`}</Card.Text>
         )}
+        {year && km && (
+          <Card.Text>
+            Year: {year} - {`${Number(km).toLocaleString('en')}`} km
+          </Card.Text>
+        )}
+        {content && <Card.Text>{parse(content)}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
@@ -173,7 +157,7 @@ const Car = (props, { product }) => {
           </Link>
           {comments_count}
           <Link to={`/cars/${id}`}>
-            <i className="fas fa-gavel"/>
+            <i className="fas fa-gavel" />
           </Link>
           {biddings_count}
         </div>
