@@ -8,7 +8,7 @@ import { axiosRes } from '../api/axiosDefaults';
 import { MoreDropdown } from './MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const Car2 = (props, { product }) => {
+const Car2 = (props) => {
   const {
     id,
     owner,

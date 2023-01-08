@@ -44,20 +44,24 @@ function BiddingCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
-        <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>
-          <InputGroup.Text>$</InputGroup.Text>
-          <Form.Control
-            className={styles.Form}
-            placeholder="my Bid..."
-            type="number"
-            min="0"
-            value={content}
-            onChange={handleChange}
-          />
-        </InputGroup>
+        {bidding_id ? (
+          <p>jemoeder</p>
+        ) : (
+          <InputGroup>
+            <Link to={`/profiles/${profile_id}`}>
+              <Avatar src={profileImage} />
+            </Link>
+            <InputGroup.Text>$</InputGroup.Text>
+            <Form.Control
+              className={styles.Form}
+              placeholder="my Bid..."
+              type="number"
+              min="0"
+              value={content}
+              onChange={handleChange}
+            />
+          </InputGroup>
+        )}
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}

@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import parse from 'html-react-parser';
 import Carousel from 'react-bootstrap/Carousel';
 
-const Car = (props, { product }) => {
+const Car = (props) => {
   const {
     id,
     owner,
