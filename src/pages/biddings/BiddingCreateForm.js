@@ -44,7 +44,7 @@ function BiddingCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
-        {bidding_id ? (
+        {props.bidding_id ? (
           <p>jemoeder</p>
         ) : (
           <InputGroup>

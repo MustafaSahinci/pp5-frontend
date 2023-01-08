@@ -146,8 +146,17 @@ function CarEditForm() {
 
     if (imageInput?.current?.files[0]) {
       formData.append('image', imageInput.current.files[0]);
+    }
+
+    if (imageInput2?.current?.files[0]) {
       formData.append('image2', imageInput2.current.files[0]);
+    }
+
+    if (imageInput3?.current?.files[0]) {
       formData.append('image3', imageInput3.current.files[0]);
+    }
+
+    if (imageInput4?.current?.files[0]) {
       formData.append('image4', imageInput4.current.files[0]);
     }
 
