@@ -22,7 +22,8 @@ import { fetchMoreData } from '../../utils/utils';
 import BiddingModal from '../../components/BiddingModal';
 import { Button } from 'react-bootstrap';
 
-function CarPage() {
+function CarPage(props) {
+  const {bidding_id} = props
   const { id } = useParams();
   const [car, setCar] = useState({ results: [] });
   const [modalShow, setModalShow] = useState(false);
@@ -31,19 +32,22 @@ function CarPage() {
   const profile_image = currentUser?.profile_image;
   const [biddings, setBiddings] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
+  const [biddingsId, setBiddingsId] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: car }, { data: biddings }, { data: comments }] =
+        const [{ data: car }, { data: biddings }, { data: comments }, {data: biddingsId}] =
           await Promise.all([
             axiosReq.get(`/cars/${id}`),
             axiosReq.get(`/biddings/?car=${id}`),
             axiosReq.get(`/comments/?car=${id}`),
+            axiosReq.get(`/biddings/${id}`),
           ]);
         setCar({ results: [car] });
         setBiddings(biddings);
         setComments(comments);
+        setBiddingsId(biddingsId)
       } catch (err) {
         console.log(err);
       }
@@ -80,7 +84,7 @@ function CarPage() {
           <BiddingModal show={modalShow} onHide={() => setModalShow(false)} />
 
           <Container className={appStyles.Content}>
-            {currentUser ? (
+            {currentUser? (
               <CommentCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -115,8 +119,11 @@ function CarPage() {
         </Col>
 
         <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+          {biddings.results.map((bidding) => {
+            <Bidding id={bidding.id}/>
+          })}
           <Container className={appStyles.Content}>
-            {currentUser ? (
+            {currentUser? (
               <BiddingCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -142,7 +149,7 @@ function CarPage() {
                 hasMore={!!biddings.next}
                 next={() => fetchMoreData(biddings, setBiddings)}
               />
-            ) : currentUser ? (
+            ) : currentUser? (
               <span>No biddings yet, be the first to bid!</span>
             ) : (
               <span>No biddings... yet</span>

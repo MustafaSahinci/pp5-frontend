@@ -92,9 +92,10 @@ function ProductPage({ message, filter = '' }) {
         </Col>
       </Row>
       <Row>
-        {Array.from({ length: 3 }).map((_, idx) => (
-          <Col md={3}>{cards}</Col>
-        ))}
+        <Col className={styles.Container} md={9}>
+          <div>{cards}</div>
+        </Col>
+
         <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
           <PopularProfiles />
         </Col>
