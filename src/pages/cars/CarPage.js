@@ -22,22 +22,21 @@ import { fetchMoreData } from '../../utils/utils';
 import BiddingModal from '../../components/BiddingModal';
 import { Button } from 'react-bootstrap';
 
-function CarPage(props) {
-  const {bidding_id} = props
+function CarPage() {
   const { id } = useParams();
   const [car, setCar] = useState({ results: [] });
   const [modalShow, setModalShow] = useState(false);
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
+  const bidding_id = currentUser?.bidding_id;
   const [biddings, setBiddings] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
-  const [biddingsId, setBiddingsId] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: car }, { data: biddings }, { data: comments }, {data: biddingsId}] =
+        const [{ data: car }, { data: biddings }, { data: comments }] =
           await Promise.all([
             axiosReq.get(`/cars/${id}`),
             axiosReq.get(`/biddings/?car=${id}`),
@@ -47,7 +46,6 @@ function CarPage(props) {
         setCar({ results: [car] });
         setBiddings(biddings);
         setComments(comments);
-        setBiddingsId(biddingsId)
       } catch (err) {
         console.log(err);
       }
@@ -69,7 +67,6 @@ function CarPage(props) {
       </Row>
       <Row>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
-        
           <Button
             className="d-lg-none .d-xl-none"
             variant="success"
@@ -79,12 +76,12 @@ function CarPage(props) {
           >
             Show biddings
           </Button>
-          <br/>
-         
+          <br />
+
           <BiddingModal show={modalShow} onHide={() => setModalShow(false)} />
 
           <Container className={appStyles.Content}>
-            {currentUser? (
+            {currentUser ? (
               <CommentCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -120,10 +117,10 @@ function CarPage(props) {
 
         <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
           {biddings.results.map((bidding) => {
-            <Bidding id={bidding.id}/>
+            <Bidding id={bidding.id} />;
           })}
           <Container className={appStyles.Content}>
-            {currentUser? (
+            {currentUser ? (
               <BiddingCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -149,7 +146,7 @@ function CarPage(props) {
                 hasMore={!!biddings.next}
                 next={() => fetchMoreData(biddings, setBiddings)}
               />
-            ) : currentUser? (
+            ) : currentUser ? (
               <span>No biddings yet, be the first to bid!</span>
             ) : (
               <span>No biddings... yet</span>

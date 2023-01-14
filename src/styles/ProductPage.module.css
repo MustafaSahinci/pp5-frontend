@@ -17,6 +17,17 @@
   color: #cfced3;
 }
 
-.Container {
-  width: 33%;
+.Listgrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Wrapper {
+  @media (max-width: 600px) {
+    flex: 100%;
+  }
+  @media (min-width: 900px) {
+    flex: 50%;
+  }
 }
