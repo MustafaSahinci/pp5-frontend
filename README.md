@@ -1,6 +1,6 @@
 # Carplace
 
-This site is for users who wants to buy a car or sell their cars. Users can posts their cars and try to sell it to other users or buy a car from other users. you can make a bid or leave a comment to a car.
+This site is for users who wants to buy or sell their cars. Users can posts their cars and try to sell it to other users or buy a car from other users. you can make a bid or leave a comment to a car.
 
 for the live website click
 [here](https://frontend-pp5.herokuapp.com/)
@@ -101,3 +101,66 @@ paragraph with a message
 ## Back End
 ### Django REST Framework
 The API for this Front-End application was built with the Django REST Framework.
+
+## 2. Technologies used
+- HTML5 used for markup
+- CSS3 used for style
+- JavaScript
+- react Used for building components that collectively form the front end of the application.
+- React-Bootstrap Used for styling the site.
+- ElephantSQL Used as database for this project
+- Ludichart Used to create the site map.
+- amiresponsive Used to see how responsive the site is on different devices. 
+- Cloudinary used to storing images and static files.
+- Django used to build the backend database, that serves as an API for the front end part of the project
+- Font Awesome used for icons
+- Git used for version control, using the terminal to commit - to Git and Push to GitHub
+- GitHub is used to store the projects code after being pushed from Git.
+- Gitpod to write my code.
+- Google Chrome Dev tools used for debugging.
+-Google Lighthouse used for audits to measure the quality of web pages.
+- Heroku used to deploy this app.
+- Favicon used for making the site favicon
+
+## 4. Testing
+Manual testing occurred regularly throughout local development and this project has been tested manually after deployment on Heroku
+
+## 5. deployments
+### Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+
+### Making a Local Clone
+1. Go to the GitHub repository
+2. Locate the Code button above the list of files and click it
+3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+4. Open commandline interface on your computer
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard
+
+$ git clone https://github.com/MustafaSahinci/pp5-frontend.git
+
+7. Press Enter to create your local clone
+
+### Deployment
+
+This project was created on GitHub and Edited in GitPod by carrying out the following:
+
+- A new repository was created
+- A meaningful name was given to the new repository and 'Create Repository' was selected
+- The repository was then opened on GitHub by clicking - - the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the PROJECT NAME HERE website/application
+- Version control was used throughout the project using the following commands in the terminal using Bash
+git add . OR git add "file name" - to stage the changes and get them ready for being committed to the local repo.
+- git commit -m "Description of the update" - to save the change and commit the change to the local repo
+- git push - to push all committed changes to the GitHub repo associated with the GitPod workspace
+
+This project was deployed via Heroku by carrying out the following:
+
+- Create the gitpod repo from the template via the gitpod button in github.
+- Log in to Heroku and create a new app.
+- Add the heroku-postgres add-on
+- Complete the config vars section
+- Link Heroku and GitHub accounts together
+- Select the repo (via Heroku) that you want to make an app of and give it a name in Heroku.
+- Click on deploy.
