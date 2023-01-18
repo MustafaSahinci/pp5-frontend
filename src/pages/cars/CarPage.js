@@ -29,7 +29,6 @@ function CarPage() {
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const bidding_id = currentUser?.bidding_id;
   const [biddings, setBiddings] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
 
@@ -81,7 +80,7 @@ function CarPage() {
           <BiddingModal show={modalShow} onHide={() => setModalShow(false)} />
 
           <Container className={appStyles.Content}>
-            {currentUser ? (
+            {currentUser & !biddings ? (
               <CommentCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
