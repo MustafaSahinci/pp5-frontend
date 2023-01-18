@@ -55,6 +55,49 @@ For the scope of this project the following key points were determined.
 - Allow users to Crud(Create, Read, Update and Delete) their posts, comment, biddings and profile.
 - The website should be easy to navigate and everything should be clear
 
-### Site map
-![Lucid App](docs/Lucas.png)
+### NAME OF THIS?
+![Lucid App](src/assets/table.png)
 
+## Front End
+### React
+<br>
+React is a declarative, efficient, and flexible JavaScript library for building user interfaces. Its primary goal is to make it easy to reason about an interface and its state at any point in time, by dividing the UI into a collection of independent and reusable components.
+
+I used React for this application for several reasons:
+
+- Speed - applying React significantly increases the page loading speed and reducing the wait, which affects user experience and satisfaction
+- Flexibility - the React code is easier to maintain and is flexible due to its modular structure, compared to other front-end frameworks
+- React Bootstrap - excellent choice for improving user experience, used for styling and responsiveness. It comes with ready-to-use React built components. They are implemented with accessibility in mind, which is a vital factor when creating a front-end application. I used plain Bootstrap in my previous projects, so it was an easy choice to use React Bootstrap in this app.
+- Most used library for developing social networking and media content applications - e.g. Meta (formerly Facebook), Instagram, Netflix, Airbnb, etc.
+- Reusability of components - no need to write various codes for the same features
+
+There were various components created and reused across this application.
+
+`<Asset.js />` - multipurpose reusable compontent which displays different versions of the component depending on the props we pass to it:
+
+loading gif (spinner) when content is being loaded
+
+image with src and alt attribute
+
+paragraph with a message
+
+`<Avatar.js />` - reusable component, used to render profile images in the UI. Passed props allow for setting image source and size and adjust image dimensions depending on where the component is rendered. Example of use include the `<NavBar.js />` component, Car page or the Profile page. On mobile screens Avatar component within the Profile Page will be significantly bigger than on other screen sizes.
+
+`<BiddingModal.js>` component for displaying a modal on small screens with the biddings section in it.
+
+`<Car.js>` component for displaying the Car card in the CarPage
+
+`<Car2.js>` component for displaying the Car card in the ProductPage
+
+`<MoreDropdown.js />` - reusable component, used to render the dropdown menu which allows user to edit or delete their own cars, biddings or comments, and also edit their profile or change profile password.
+
+?<FeedbackMsg.js /> - component for displaying feedback messages to the user upon editing/deleting comments, deleting post, updating profile information or a password.?
+
+`<NavBar.js />` - reusable component with the content depending on the login status of the user. For logged in user it shows icon link to the main posts page and user avatar/picture. For those who are not logged in, it displays icon links to sign up or log in instead of the avatar. The component is used on each page of the app.
+
+?<PageNotFound.js /> - specific component for displaying a 404 graphic error message with a return to menu button when user enters the url which does not exist.?
+
+
+## Back End
+### Django REST Framework
+The API for this Front-End application was built with the Django REST Framework.
