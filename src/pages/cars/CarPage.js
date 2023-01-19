@@ -80,7 +80,7 @@ function CarPage() {
           <BiddingModal show={modalShow} onHide={() => setModalShow(false)} />
 
           <Container className={appStyles.Content}>
-            {currentUser & !biddings ? (
+            {currentUser ? (
               <CommentCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}

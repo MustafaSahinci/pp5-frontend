@@ -102,7 +102,28 @@ paragraph with a message
 ### Django REST Framework
 The API for this Front-End application was built with the Django REST Framework.
 
-## 2. Technologies used
+## 2. Features
+<details>
+<summary>Home page</summary>
+<br>
+
+The home page is kept simple. it consists of a navigation, search bar, the posts(cars) and the most followed profiles.
+
+In the search bar the user can filter on profile names and titles of the posts(cars)
+
+The Car card on the home page is different from the card on the Carpage. This card don't have the content and Carousel of images, But only 1 image which you can click to go to the post(car)
+
+![Home](src/assets/home.png)
+</details>
+
+<details>
+<summary>Navigation</summary>
+<br>
+
+
+</details>
+
+## 3. Technologies used
 - HTML5 used for markup
 - CSS3 used for style
 - JavaScript
@@ -125,7 +146,12 @@ The API for this Front-End application was built with the Django REST Framework.
 ## 4. Testing
 Manual testing occurred regularly throughout local development and this project has been tested manually after deployment on Heroku
 
-## 5. deployments
+## 5.Bugs
+- 
+- 
+- 
+
+## 6. deployments
 ### Forking the GitHub Repository
 1. Go to the GitHub repository
 2. Click on Fork button in top right corner
@@ -164,3 +190,13 @@ This project was deployed via Heroku by carrying out the following:
 - Link Heroku and GitHub accounts together
 - Select the repo (via Heroku) that you want to make an app of and give it a name in Heroku.
 - Click on deploy.
+
+## 7. Credits
+- Moments project from Code Institute
+- My mentor Rohit Sharma
+- Code institute slack community
+- Stackoverflow
+- React-Bootstrap documentation
+
+### media
+- images from google

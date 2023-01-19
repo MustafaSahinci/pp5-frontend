@@ -16,6 +16,7 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
+import image from '../../assets/signup.jpg'
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -113,7 +114,7 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={'https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg'}
+          src={image}
         />
       </Col>
     </Row>
