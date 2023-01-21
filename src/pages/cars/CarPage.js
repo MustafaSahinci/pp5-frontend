@@ -40,7 +40,6 @@ function CarPage() {
             axiosReq.get(`/cars/${id}`),
             axiosReq.get(`/biddings/?car=${id}`),
             axiosReq.get(`/comments/?car=${id}`),
-            axiosReq.get(`/biddings/${id}`),
           ]);
         setCar({ results: [car] });
         setBiddings(biddings);
