@@ -24,7 +24,7 @@ const Car2 = (props) => {
     km,
     image,
     updated_at,
-    carPage,
+    ProductPage,
     setCars,
   } = props;
 
@@ -87,7 +87,7 @@ const Car2 = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && carPage && (
+            {is_owner && ProductPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
