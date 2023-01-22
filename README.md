@@ -114,12 +114,84 @@ In the search bar the user can filter on profile names and titles of the posts(c
 The Car card on the home page is different from the card on the Carpage. This card don't have the content and Carousel of images, But only 1 image which you can click to go to the post(car)
 
 ![Home](src/assets/home.png)
+![Home](src/assets/home2.png)
 </details>
 
 <details>
 <summary>Navigation</summary>
 <br>
 
+![Home](src/assets/nav.png)
+![Home](src/assets/nav2.png)
+![Home](src/assets/nav3.png)
+![Home](src/assets/nav5.png)
+![Home](src/assets/nav6.png)
+![Home](src/assets/nav7.png)
+</details>
+
+<details>
+<summary>feed and save page</summary>
+<br>
+
+![Home](src/assets/feed.png)
+![Home](src/assets/feed2.png)
+![Home](src/assets/saves.png)
+![Home](src/assets/saves2.png)
+
+</details>
+
+<details>
+<summary>carpage</summary>
+<br>
+
+![Home](src/assets/car.png)
+![Home](src/assets/car2.png)
+![Home](src/assets/car3.png)
+![Home](src/assets/car4.png)
+![Home](src/assets/car5.png)
+![Home](src/assets/car6.png)
+![Home](src/assets/car7.png)
+![Home](src/assets/car8.png)
+
+</details>
+
+<details>
+<summary>profile</summary>
+<br>
+
+![Home](src/assets/profile.png)
+![Home](src/assets/profile2.png)
+
+</details>
+
+<details>
+<summary>Create car</summary>
+<br>
+
+![Home](src/assets/create.png)
+![Home](src/assets/create2.png)
+![Home](src/assets/create3.png)
+
+<details>
+
+<details>
+<summary>Create car</summary>
+<br>
+
+![Home](src/assets/fav.png)
+![Home](src/assets/fav1.png)
+![Home](src/assets/fav2.png)
+
+</details>
+
+<details>
+<summary>Create car</summary>
+<br>
+
+![Home](src/assets/signinn.png)
+![Home](src/assets/signinn1.png)
+![Home](src/assets/signupp.png)
+![Home](src/assets/signupp1.png)
 
 </details>
 

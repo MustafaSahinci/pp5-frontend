@@ -112,8 +112,8 @@ function CarCreateForm() {
     formData.append('km', km);
     formData.append('image', imageInput.current.files[0]);
     formData.append('image2', imageInput2.current.files[0]);
-    formData.append('image3', imageInput.current.files[0]);
-    formData.append('image4', imageInput.current.files[0]);
+    formData.append('image3', imageInput3.current.files[0]);
+    formData.append('image4', imageInput4.current.files[0]);
 
     try {
       const { data } = await axiosReq.post('/cars/', formData);
