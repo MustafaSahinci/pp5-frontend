@@ -172,7 +172,7 @@ The Car card on the home page is different from the card on the Carpage. This ca
 ![Home](src/assets/create2.png)
 ![Home](src/assets/create3.png)
 
-<details>
+</details>
 
 <details>
 <summary>Create car</summary>
