@@ -161,6 +161,14 @@ The Car card on the home page is different from the card on the Carpage. This ca
 
 ![Home](src/assets/profile.png)
 ![Home](src/assets/profile2.png)
+![Home](src/assets/profile3.png)
+![Home](src/assets/profile4.png)
+![Home](src/assets/profile5.png)
+![Home](src/assets/profile6.png)
+![Home](src/assets/profile7.png)
+![Home](src/assets/profile8.png)
+![Home](src/assets/profile9.png)
+![Home](src/assets/profile10.png)
 
 </details>
 
@@ -175,7 +183,7 @@ The Car card on the home page is different from the card on the Carpage. This ca
 </details>
 
 <details>
-<summary>Create car</summary>
+<summary>favorite sellers</summary>
 <br>
 
 ![Home](src/assets/fav.png)
@@ -185,7 +193,7 @@ The Car card on the home page is different from the card on the Carpage. This ca
 </details>
 
 <details>
-<summary>Create car</summary>
+<summary>sign in and up</summary>
 <br>
 
 ![Home](src/assets/signinn.png)
