@@ -115,7 +115,8 @@ The Car card on the home page is different from the card on the Carpage. This ca
 
 ![Home](src/assets/home.png)
 
-This is the home page on a small screen. you have still all the features, only the follow button on the best sellers is not here. 
+This is the home page on a small screen. you have still all the features, only the follow button on the best sellers is not here.
+
 ![Home](src/assets/home2.png)
 </details>
 
@@ -155,11 +156,11 @@ On the feed page you can see the posts(cars) of the sellers you are following. O
 
 If you don't follow anyone you see a screen with:
 No results found. Adjust the search keyword or follow a user.
+![Home](src/assets/feed.png)
+![Home](src/assets/feed2.png)
 
 If you don't have a post(car) saved you see a screen with:
 No results found. Adjust the search keyword or save a post.
-![Home](src/assets/feed.png)
-![Home](src/assets/feed2.png)
 ![Home](src/assets/saves.png)
 ![Home](src/assets/saves2.png)
 
@@ -175,19 +176,26 @@ If you created this post(car), you will also see the three dots with links to ed
 
 You can change anything about your post(car) on the Car edit page. And you can delete your post(car)
 
+Registered user
 ![Home](src/assets/car.png)
 ![Home](src/assets/car2.png)
+
+Unregistered user
 ![Home](src/assets/car8.png)
+
+responsive screen with the biddings modal(registered user)
 ![Home](src/assets/car3.png)
 ![Home](src/assets/car4.png)
 ![Home](src/assets/car5.png)
+
+responsive screen with the biddings modal(unregistered user)
 ![Home](src/assets/car7.png)
 ![Home](src/assets/car6.png)
+
+The car edit page and responsive car edit page
 ![Home](src/assets/caredit.png)
 ![Home](src/assets/caredit1.png)
 ![Home](src/assets/caredit2.png)
-
-
 
 </details>
 
@@ -195,15 +203,36 @@ You can change anything about your post(car) on the Car edit page. And you can d
 <summary>profile</summary>
 <br>
 
+On the profile page you see your profile image, username, how many cars you posted, hwo many followers you have, how mnay followings you have and the bio. Below are all the posts(cars) you created. If you click on the three dots on the right you can change you profile details, username or password. If you are on a profile from a different user you see the button to follow/unfollow this is for small screens the only place you can do this. 
+
+other users profile 
 ![Home](src/assets/profile.png)
+
+your profile
 ![Home](src/assets/profile2.png)
+
+your responsive profile
 ![Home](src/assets/profile3.png)
+
+other users responsive profile
 ![Home](src/assets/profile4.png)
+
+edit profile page
 ![Home](src/assets/profile5.png)
+
+change username page
 ![Home](src/assets/profile6.png)
+
+change password page
 ![Home](src/assets/profile7.png)
+
+responsive edit profile page
 ![Home](src/assets/profile8.png)
+
+responsive change username page
 ![Home](src/assets/profile9.png)
+
+responsive change password page
 ![Home](src/assets/profile10.png)
 
 </details>
@@ -212,7 +241,12 @@ You can change anything about your post(car) on the Car edit page. And you can d
 <summary>Create car</summary>
 <br>
 
+Here you can create a car and it is responsive. you can add 4 pictures, title, price,year, km and content 
+
+Create product page
 ![Home](src/assets/create.png)
+
+Responsive create product page
 ![Home](src/assets/create2.png)
 ![Home](src/assets/create3.png)
 
@@ -222,8 +256,15 @@ You can change anything about your post(car) on the Car edit page. And you can d
 <summary>favorite sellers</summary>
 <br>
 
+Here you see the favorite sellers component. You can follow a user and the can follow you!
+
+registered user
 ![Home](src/assets/fav.png)
+
+unregistered user
 ![Home](src/assets/fav1.png)
+
+responsive
 ![Home](src/assets/fav2.png)
 
 </details>
@@ -232,8 +273,11 @@ You can change anything about your post(car) on the Car edit page. And you can d
 <summary>sign in and up</summary>
 <br>
 
+Here you can sign in and look at the nice image!
 ![Home](src/assets/signinn.png)
 ![Home](src/assets/signinn1.png)
+
+here you can sign up and look at the nice image!
 ![Home](src/assets/signupp.png)
 ![Home](src/assets/signupp1.png)
 
