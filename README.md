@@ -107,13 +107,15 @@ The API for this Front-End application was built with the Django REST Framework.
 <summary>Home page</summary>
 <br>
 
-The home page is kept simple. it consists of a navigation, search bar, the posts(cars) and the most followed profiles.
+The home page is kept simple. it consists of a navigation, search bar, the posts(cars) and the best sellers profiles.
 
 In the search bar the user can filter on profile names and titles of the posts(cars)
 
-The Car card on the home page is different from the card on the Carpage. This card don't have the content and Carousel of images, But only 1 image which you can click to go to the post(car)
+The Car card on the home page is different from the card on the Carpage. This card doesn't have the content and Carousel of images, But only 1 image which you can click to go to the post(car)
 
 ![Home](src/assets/home.png)
+
+This is the home page on a small screen. you have still all the features, only the follow button on the best sellers is not here. 
 ![Home](src/assets/home2.png)
 </details>
 
@@ -121,11 +123,27 @@ The Car card on the home page is different from the card on the Carpage. This ca
 <summary>Navigation</summary>
 <br>
 
+the navigation can be found at the top of the website. If you are not logged in, you will see home, sign in and sign up. If you are logged in, you will see add product, home, feed, saves, sign out and profile.
+
+The navigation adapts to smaller screens by becoming a hamburger menu and is fixed on top so it's always easily available.
+
+Registered users
 ![Home](src/assets/nav.png)
+
+Unregistered users
 ![Home](src/assets/nav2.png)
+
+Responsive Navigation registered users
+
 ![Home](src/assets/nav3.png)
+
+Responsive Navigation unregistered users
 ![Home](src/assets/nav5.png)
+
+Responsive Navigation hamburger menu unregistered users
 ![Home](src/assets/nav6.png)
+
+Responsive Navigation hamburger menu registered users
 ![Home](src/assets/nav7.png)
 </details>
 
@@ -133,6 +151,13 @@ The Car card on the home page is different from the card on the Carpage. This ca
 <summary>feed and save page</summary>
 <br>
 
+On the feed page you can see the posts(cars) of the sellers you are following. On the saves page you can see the posts(cars) you liked.
+
+If you don't follow anyone you see a screen with:
+No results found. Adjust the search keyword or follow a user.
+
+If you don't have a post(car) saved you see a screen with:
+No results found. Adjust the search keyword or save a post.
 ![Home](src/assets/feed.png)
 ![Home](src/assets/feed2.png)
 ![Home](src/assets/saves.png)
@@ -144,14 +169,25 @@ The Car card on the home page is different from the card on the Carpage. This ca
 <summary>carpage</summary>
 <br>
 
+Here you can find the images, title, price, year, km and content of the post(car), as well as how many saves, comments and biddings the post has. Here you'll also see who the author is and the favorite sellers.
+
+If you created this post(car), you will also see the three dots with links to edit and delete the post. You can see the comments and biddings below. If you are logged in, you can post your comments and biddings. You can also edit or delete your comments or biddings
+
+You can change anything about your post(car) on the Car edit page. And you can delete your post(car)
+
 ![Home](src/assets/car.png)
 ![Home](src/assets/car2.png)
+![Home](src/assets/car8.png)
 ![Home](src/assets/car3.png)
 ![Home](src/assets/car4.png)
 ![Home](src/assets/car5.png)
-![Home](src/assets/car6.png)
 ![Home](src/assets/car7.png)
-![Home](src/assets/car8.png)
+![Home](src/assets/car6.png)
+![Home](src/assets/caredit.png)
+![Home](src/assets/caredit1.png)
+![Home](src/assets/caredit2.png)
+
+
 
 </details>
 
