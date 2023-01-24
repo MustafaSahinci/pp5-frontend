@@ -283,6 +283,14 @@ here you can sign up and look at the nice image!
 
 </details>
 
+### future features
+- chat page between the user's in place of comments
+- Users can login with their social media accounts
+- categories for bike's, clothing and many more
+- new design
+- highest bid always up
+-
+
 ## 3. Technologies used
 - HTML5 used for markup
 - CSS3 used for style
@@ -299,12 +307,49 @@ here you can sign up and look at the nice image!
 - GitHub is used to store the projects code after being pushed from Git.
 - Gitpod to write my code.
 - Google Chrome Dev tools used for debugging.
--Google Lighthouse used for audits to measure the quality of web pages.
+- Google Lighthouse is used for audits to measure the quality of web pages.
 - Heroku used to deploy this app.
 - Favicon used for making the site favicon
 
 ## 4. Testing
-Manual testing occurred regularly throughout local development and this project has been tested manually after deployment on Heroku
+Manual testing occurred regularly throughout local development and this project has been tested manually after deployment on Heroku 
+
+- All form validations are working.
+- you can't put letters in the bid form
+- if you are not authorized to be on one of the pages like edit car from other users you get redirected to the home page. 
+
+examples are:
+- if you aren't logged in and you go to the link to create a post(car) you get redirected to the home page
+- if you are logged in but go to the link for editing a post(car) from another user you get redirected to the home page
+
+All the links, buttons and features are working
+for login this error shows up:
+- This field may not be blank.
+- Must include "username" and "password".
+- Unable to log in with provided credentials.
+
+and for the register you can see these errors:
+- This field may not be blank.
+- This password is too short. It must contain at least 8 characters.
+- This password is too common.
+- This password is entirely numeric.
+
+If you are nog loggedin you can still click on the posts(car) and see the product, favorite sellers, comments and biddings. but you can't see the form of comments or biddings. You can't see the follow button on the favorite sellers component either.
+
+![test](src/assets/tcar.png)
+
+When you click on signin on the navigation you get to the sign in page. And these are the errors you can get if you don't fill in the form with the right information
+
+![test](src/assets/tsignin.png)
+![test](src/assets/tsignin2.png)
+![test](src/assets/tsignin3.png)
+
+When you click on signup on the navigation you get to the sign up page. And these are the errors you can get if you don't fill in the form with the right information
+
+![test](src/assets/tsignup.png)
+![test](src/assets/tsignup2.png)
+![test](src/assets/tsignup3.png)
+
 
 ## 5.Bugs
 - 
