@@ -1,6 +1,7 @@
 .Form {
+  height: 45px;
   border: none;
-  border-bottom: 2px #00d1ff solid;
+  border-bottom: 2px #37b221 solid;
 }
 
 .Button {
