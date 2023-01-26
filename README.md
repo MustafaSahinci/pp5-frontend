@@ -61,6 +61,9 @@ For the scope of this project the following key points were determined.
 ## Front End
 ### React
 <br>
+
+A React developer is responsible for the design and implementation of user interfaces (UIs) and UI components using React, a front-end JavaScript library. They develop and maintain UIs for web and mobile apps.
+
 React is a declarative, efficient, and flexible JavaScript library for building user interfaces. Its primary goal is to make it easy to reason about an interface and its state at any point in time, by dividing the UI into a collection of independent and reusable components.
 
 I used React for this application for several reasons:
