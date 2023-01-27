@@ -16,7 +16,7 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
-import image from '../../assets/signup.jpg'
+import image from '../../assets/signup.jpg';
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -112,10 +112,7 @@ function SignInForm() {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={image}
-        />
+        <Image className={`${appStyles.FillerImage}`} src={image} />
       </Col>
     </Row>
   );

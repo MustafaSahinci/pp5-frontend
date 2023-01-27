@@ -22,11 +22,10 @@ function BiddingModal(props) {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: car }, { data: biddings }] =
-          await Promise.all([
-            axiosReq.get(`/cars/${id}`),
-            axiosReq.get(`/biddings/?car=${id}`),
-          ]);
+        const [{ data: car }, { data: biddings }] = await Promise.all([
+          axiosReq.get(`/cars/${id}`),
+          axiosReq.get(`/biddings/?car=${id}`),
+        ]);
         setCar({ results: [car] });
         setBiddings(biddings);
       } catch (err) {

@@ -96,7 +96,7 @@ paragraph with a message
 
 ?<FeedbackMsg.js /> - component for displaying feedback messages to the user upon editing/deleting comments, deleting post, updating profile information or a password.?
 
-`<NavBar.js />` - reusable component with the content depending on the login status of the user. For logged in user it shows icon link to the main posts page and user avatar/picture. For those who are not logged in, it displays icon links to sign up or log in instead of the avatar. The component is used on each page of the app.
+`<NavBar.js />` - reusable component with the content depending on the login status of the user. For logged in user it shows icon link to the main posts(cars) page, add product link, home link, feed link, saves link, log out link and user avatar/picture(profile). For those who are not logged in, it shows a icon link to the main posts(cars) page and links to sign in or sign up. The component is used on each page of the app.
 
 ?<PageNotFound.js /> - specific component for displaying a 404 graphic error message with a return to menu button when user enters the url which does not exist.?
 

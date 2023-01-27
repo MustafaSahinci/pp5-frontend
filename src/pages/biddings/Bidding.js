@@ -63,7 +63,7 @@ const Bidding = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>$ {`${Number(content).toLocaleString("en")}`}</p>
+            <p>$ {`${Number(content).toLocaleString('en')}`}</p>
           )}
         </Media.Body>
         {is_owner && !showEditForm && (

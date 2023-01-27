@@ -38,14 +38,14 @@ function BiddingCreateForm(props) {
       }));
       setContent('');
       setBid(true);
-      console.log(setBid)
+      console.log(setBid);
     } catch (err) {
       console.log(err);
     }
   };
-  
-  console.log(bid)
-  console.log(setBid)
+
+  console.log(bid);
+  console.log(setBid);
 
   return !bid ? (
     <Form className="mt-2" onSubmit={handleSubmit}>

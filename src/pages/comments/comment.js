@@ -55,7 +55,7 @@ const Comment = (props) => {
           />
         )}
         <Media.Body className="align-self-center mr-2">
-          <div className='d-flex justify-content-end'>
+          <div className="d-flex justify-content-end">
             <span className={styles.Date2}>{updated_at}</span>
             <span className={styles.Owner2}>{owner}</span>
           </div>
