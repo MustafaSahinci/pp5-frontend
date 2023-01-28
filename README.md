@@ -55,8 +55,28 @@ For the scope of this project the following key points were determined.
 - Allow users to Crud(Create, Read, Update and Delete) their posts, comment, biddings and profile.
 - The website should be easy to navigate and everything should be clear
 
-### NAME OF THIS?
-![Lucid App](src/assets/table.png)
+### design
+
+Colours :
+
+wireframe for homepage
+![Frames](src/assets/homeframe.png)
+
+wireframe for carpage
+![Frames](src/assets/carframe.png)
+
+wireframe for createpage
+![Frames](src/assets/createframe.png)
+
+wireframe for profilepage
+![Frames](src/assets/profileframe.png)
+
+wireframe for sign in page
+![Frames](src/assets/signinframe.png)
+
+wireframe for sing up page
+![Frames](src/assets/signupframe.png)
+
 
 ## Front End
 ### React
