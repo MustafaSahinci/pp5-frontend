@@ -5,8 +5,6 @@ import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import { axiosRes } from '../api/axiosDefaults';
-import { MoreDropdown } from './MoreDropdown';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Car2 = (props) => {
   const {
@@ -24,26 +22,11 @@ const Car2 = (props) => {
     km,
     image,
     updated_at,
-    ProductPage,
     setCars,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  const history = useHistory();
-
-  const handleEdit = () => {
-    history.push(`/cars/${id}/edit`);
-  };
-
-  const handleDelete = async () => {
-    try {
-      await axiosRes.delete(`/cars/${id}/`);
-      history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const handleLike = async () => {
     try {
@@ -87,12 +70,6 @@ const Car2 = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && ProductPage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
           </div>
         </Media>
       </Card.Body>

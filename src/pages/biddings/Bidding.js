@@ -35,7 +35,7 @@ const Bidding = (props) => {
           },
         ],
       }));
-
+      
       setBiddings((prevBiddings) => ({
         ...prevBiddings,
         results: prevBiddings.results.filter((bidding) => bidding.id !== id),

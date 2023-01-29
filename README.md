@@ -19,27 +19,27 @@ Unregistered users can see the cars, profiles, comments and biddings. but can't 
 Registered users can create, read, update and delete their posts(cars), commments and biddings. They can follow their favorite sellers and only see their posts(cars) in feed. They can also save the posts(cars) which they interested in and find it easy later. The users can also edit their profile, username and password.
 
 ### First Time Visitor Goals
-- as a first time visitor, I would like to see a clear home page
-- As a first time visitor, I would like to easily navigate through the website.
-- As a first time visitor, I would like to see the posts(cars)
-- as a first time visitor, I would like to see the profile of the users.
-- as a First Time visitor, I would like to register.
+- as a unregistered visitor, I would like to see a clear home page
+- As a unregistered visitor, I would like to easily navigate through the website.
+- As a unregistered visitor, I would like to see the posts(cars)
+- as a unregistered visitor, I would like to see the profile of the users.
+- as a unregistered visitor, I would like to register.
 
 ### Returning Visitor Goals
-- As a returning visitor, I would like to login.
-- As a returning visitor, I would like to save posts(cars). 
-- As a returning visitor, I would like to comment on posts(cars).
-- As a returning visitor, I would like to create, read, edit and delete my own comments.
-- As a returning visitor, I would like to create, read, edit and delete my own posts (cars).
-- As a returning visitor, I would like to create, read, edit and delete my own bid
-- As a returning visitor, I would like to edit my own profile, username and password
-- As a returning visitor, I would like to see al my own post(cars) in my profile page
-- As a returning visitor, I would like to logout when I want.
+- As a registered visitor, I would like to login.
+- As a registered visitor, I would like to save posts(cars). 
+- As a registered visitor, I would like to comment on posts(cars).
+- As a registered visitor, I would like to create, read, edit and delete my own comments.
+- As a registered visitor, I would like to create, read, edit and delete my own posts (cars).
+- As a registered visitor, I would like to create, read, edit and delete my own bid
+- As a registered visitor, I would like to edit my own profile, username and password
+- As a registered visitor, I would like to see al my own post(cars) in my profile page
+- As a registered visitor, I would like to logout when I want.
 
 ## agile
 Agile is an approach to project management that centers around incremental and iterative steps to completing projects. The incremental parts of a project are carried out in short-term development cycles
 
-I used the Canban board in github projects and issues which you can see 
+I used the Kanban board in github projects and issues which you can see 
 [here](https://github.com/users/MustafaSahinci/projects/1/views/1)
 
 And I used the github Milestones for the sprints which you can see
@@ -139,6 +139,9 @@ paragraph with a message
 ## Back End
 ### Django REST Framework
 The API for this Front-End application was built with the Django REST Framework.
+
+for the backend click
+[here](https://github.com/MustafaSahinci/pp5-backend)
 
 ## 2. Features
 <details>
@@ -384,6 +387,9 @@ here you can sign up and look at the nice image!
 - categories for bike's, clothing and many more
 - new design
 - highest bid always up
+- upload multiple files using one form field, so users can decide how many images they want to upload 
+- defensive programming ask user if they are sure to delete cars, comments, bidding
+- show alerts
 
 ## 3. Technologies used
 - HTML5 used for markup
@@ -432,7 +438,7 @@ and for the register you can see these errors:
 <summary>Tests</summary>
 <br>
 
-If you are nog loggedin you can still click on the posts(car) and see the product, favorite sellers, comments and biddings. but you can't see the form of comments or biddings. You can't see the follow button on the favorite sellers component either.
+If you are not loggedin you can still click on the posts(car) and see the product, favorite sellers, comments and biddings. but you can't see the form of comments or biddings. You can't see the follow button on the favorite sellers component either.
 
 ![test](src/assets/tcar.png)
 
