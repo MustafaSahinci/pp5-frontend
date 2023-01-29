@@ -145,6 +145,8 @@ The API for this Front-End application was built with the Django REST Framework.
 <summary>Home page</summary>
 <br>
 
+user stories in Milestone The Products Page covered
+
 The home page is kept simple. it consists of a navigation, search bar, the posts(cars) and the best sellers profiles.
 
 In the search bar the user can filter on profile names and titles of the posts(cars)
@@ -161,6 +163,8 @@ This is the home page on a small screen. you have still all the features, only t
 <details>
 <summary>Navigation</summary>
 <br>
+
+user stories in Milestone Navigation & Authentication covered
 
 the navigation can be found at the top of the website. If you are not logged in, you will see home, sign in and sign up. If you are logged in, you will see add product, home, feed, saves, sign out and profile.
 
@@ -195,6 +199,8 @@ Responsive Navigation hamburger menu registered users
 <summary>feed and save page</summary>
 <br>
 
+user stories in Milestone The Products Page covered
+
 On the feed page you can see the posts(cars) of the sellers you are following. On the saves page you can see the posts(cars) you liked.
 
 If you don't follow anyone you see a screen with:
@@ -216,6 +222,8 @@ No results found. Adjust the search keyword or save a post.
 <details>
 <summary>carpage</summary>
 <br>
+
+user stories in Milestone The Product Page covered
 
 Here you can find the images, title, price, year, km and content of the post(car), as well as how many saves, comments and biddings the post has. Here you'll also see who the author is and the favorite sellers.
 
@@ -260,6 +268,8 @@ The car edit page and responsive car edit page
 <details>
 <summary>profile</summary>
 <br>
+
+user stories in Milestone The Profile Page covered
 
 On the profile page you see your profile image, username, how many cars you posted, hwo many followers you have, how mnay followings you have and the bio. Below are all the posts(cars) you created. If you click on the three dots on the right you can change you profile details, username or password. If you are on a profile from a different user you see the button to follow/unfollow this is for small screens the only place you can do this. 
 
@@ -309,6 +319,8 @@ responsive change password page
 <summary>Create car</summary>
 <br>
 
+user stories in Milestone Adding & saving products covered
+
 Here you can create a car and it is responsive. you can add 4 pictures, title, price,year, km and content 
 
 Create product page
@@ -326,6 +338,8 @@ Responsive create product page
 <details>
 <summary>favorite sellers</summary>
 <br>
+
+user stories in Milestone The Products Page covered
 
 Here you see the favorite sellers component. You can follow a user and the can follow you!
 
@@ -346,6 +360,8 @@ responsive
 <details>
 <summary>sign in and up</summary>
 <br>
+
+user stories in Milestone Navigation & Authentication covered
 
 Here you can sign in and look at the nice image!
 
@@ -434,9 +450,10 @@ When you click on signup on the navigation you get to the sign up page. And thes
 </details>
 
 ## 5.Bugs
-- 
-- 
-- 
+- On the Carpage users can place a bid. To focus here on CRUD I wanted that the users can place only 1 bid, Because if the users can place more bids they don't need to edit or delete their other bids. To create this I needed a ternary operator, so when they place a bid the BiddingCreate form must disappear but when they delete their bid the BiddingCreate form must appear again. After researching on internet(google, stackoverflow), asking on slack it's was still not fixed. But with the help of the code institute tutors we finally where able to fix this problem with adding this code and this ternary operator in Carpage.js: 
+
+- const checkUsername = obj => obj.owner === currentUser.username;
+- currentUser && !biddings?.results.some(checkUsername) ?  
 
 ## 6. deployments
 ### Forking the GitHub Repository
