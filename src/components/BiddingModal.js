@@ -29,7 +29,7 @@ function BiddingModal(props) {
         setCar({ results: [car] });
         setBiddings(biddings);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

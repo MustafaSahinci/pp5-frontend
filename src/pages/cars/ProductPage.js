@@ -34,7 +34,7 @@ function ProductPage({ message, filter = '' }) {
         setCars(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

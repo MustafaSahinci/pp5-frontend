@@ -32,7 +32,7 @@ function BiddingEditForm(props) {
       }));
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

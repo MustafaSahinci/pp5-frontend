@@ -47,14 +47,12 @@ function CarPage() {
         setBiddings(biddings);
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
     handleMount();
   }, [id]);
-
-  console.log(biddings?.results);
 
   return (
     <Container>

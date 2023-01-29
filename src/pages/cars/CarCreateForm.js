@@ -118,7 +118,7 @@ function CarCreateForm() {
       const { data } = await axiosReq.post('/cars/', formData);
       history.push(`/cars/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
