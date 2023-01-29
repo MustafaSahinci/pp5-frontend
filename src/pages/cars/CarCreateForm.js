@@ -9,7 +9,6 @@ import Alert from 'react-bootstrap/Alert';
 import Image from 'react-bootstrap/Image';
 
 import Asset from '../../components/Asset';
-
 import Upload from '../../assets/upload.png';
 
 import styles from '../../styles/CarCreateEditForm.module.css';
@@ -19,7 +18,7 @@ import btnStyles from '../../styles/Button.module.css';
 import { useHistory } from 'react-router';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useRedirect } from '../../hooks/useRedirect';
-import { InputGroup } from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
 import JoditEditor from 'jodit-react';
 
 function CarCreateForm() {

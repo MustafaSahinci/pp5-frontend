@@ -20,7 +20,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Asset from '../../components/Asset';
 import { fetchMoreData } from '../../utils/utils';
 import BiddingModal from '../../components/BiddingModal';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 function CarPage() {
   const { id } = useParams();
@@ -32,7 +32,7 @@ function CarPage() {
   const [biddings, setBiddings] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
 
-  const checkUsername = obj => obj.owner === currentUser.username;
+  const checkUsername = (obj) => obj.owner === currentUser.username;
 
   useEffect(() => {
     const handleMount = async () => {
@@ -54,7 +54,7 @@ function CarPage() {
     handleMount();
   }, [id]);
 
-  console.log(biddings?.results)
+  console.log(biddings?.results);
 
   return (
     <Container>
@@ -117,9 +117,9 @@ function CarPage() {
           </Container>
         </Col>
 
-        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">      
+        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
           <Container className={appStyles.Content}>
-            {currentUser && !biddings?.results.some(checkUsername) ?  (
+            {currentUser && !biddings?.results.some(checkUsername) ? (
               <BiddingCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}

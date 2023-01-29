@@ -15,7 +15,7 @@ import btnStyles from '../../styles/Button.module.css';
 import { useHistory, useParams } from 'react-router';
 import { axiosReq } from '../../api/axiosDefaults';
 import JoditEditor from 'jodit-react';
-import { InputGroup } from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function CarEditForm() {
   const editor = useRef(null);

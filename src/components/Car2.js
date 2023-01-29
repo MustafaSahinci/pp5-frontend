@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from '../styles/Car.module.css';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import { axiosRes } from '../api/axiosDefaults';
+import Card from 'react-bootstrap/Card';
+import Media from 'react-bootstrap/Media';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const Car2 = (props) => {
   const {
