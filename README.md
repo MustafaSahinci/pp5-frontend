@@ -45,7 +45,7 @@ I used the Canban board in github projects and issues which you can see
 And I used the github Milestones for the sprints which you can see
 [here](https://github.com/MustafaSahinci/pp5-frontend/milestones)
 
-### Scope
+## Scope
 For the scope of this project the following key points were determined.
 
 - Create a webpage application using React.
@@ -55,28 +55,43 @@ For the scope of this project the following key points were determined.
 - Allow users to Crud(Create, Read, Update and Delete) their posts, comment, biddings and profile.
 - The website should be easy to navigate and everything should be clear
 
-### design
+## design
 
-Colours :
+font-family: 'DM Sans', sans-serif
+
+Colors:
+I tried to keep the colors simple for a clear site. so I used mostly white, black and grey colors and my favorite color green 
+
+![colors](src/assets/colors.png)
+
+<details>
+<summary>Wireframes</summary>
+<br>
 
 wireframe for homepage
+
 ![Frames](src/assets/homeframe.png)
 
 wireframe for carpage
+
 ![Frames](src/assets/carframe.png)
 
 wireframe for createpage
+
 ![Frames](src/assets/createframe.png)
 
 wireframe for profilepage
+
 ![Frames](src/assets/profileframe.png)
 
 wireframe for sign in page
+
 ![Frames](src/assets/signinframe.png)
 
 wireframe for sing up page
-![Frames](src/assets/signupframe.png)
 
+![Frames](src/assets/signupframe.png)
+</details>
 
 ## Front End
 ### React
@@ -152,23 +167,28 @@ the navigation can be found at the top of the website. If you are not logged in,
 The navigation adapts to smaller screens by becoming a hamburger menu and is fixed on top so it's always easily available.
 
 Registered users
-![Home](src/assets/nav.png)
+
+![Nav](src/assets/nav.png)
 
 Unregistered users
-![Home](src/assets/nav2.png)
+
+![Nav](src/assets/nav2.png)
 
 Responsive Navigation registered users
 
-![Home](src/assets/nav3.png)
+![Nav](src/assets/nav3.png)
 
 Responsive Navigation unregistered users
-![Home](src/assets/nav5.png)
+
+![Nav](src/assets/nav5.png)
 
 Responsive Navigation hamburger menu unregistered users
-![Home](src/assets/nav6.png)
+
+![Nav](src/assets/nav6.png)
 
 Responsive Navigation hamburger menu registered users
-![Home](src/assets/nav7.png)
+
+![Nav](src/assets/nav7.png)
 </details>
 
 <details>
@@ -179,13 +199,17 @@ On the feed page you can see the posts(cars) of the sellers you are following. O
 
 If you don't follow anyone you see a screen with:
 No results found. Adjust the search keyword or follow a user.
-![Home](src/assets/feed.png)
-![Home](src/assets/feed2.png)
+
+![feedsave](src/assets/feed.png)
+
+![feedsave](src/assets/feed2.png)
 
 If you don't have a post(car) saved you see a screen with:
 No results found. Adjust the search keyword or save a post.
-![Home](src/assets/saves.png)
-![Home](src/assets/saves2.png)
+
+![feedsave](src/assets/saves.png)
+
+![feedsave](src/assets/saves2.png)
 
 </details>
 
@@ -200,25 +224,36 @@ If you created this post(car), you will also see the three dots with links to ed
 You can change anything about your post(car) on the Car edit page. And you can delete your post(car)
 
 Registered user
-![Home](src/assets/car.png)
-![Home](src/assets/car2.png)
+
+![Car](src/assets/car.png)
+
+![Car](src/assets/car2.png)
 
 Unregistered user
-![Home](src/assets/car8.png)
+
+![Car](src/assets/car8.png)
 
 responsive screen with the biddings modal(registered user)
-![Home](src/assets/car3.png)
-![Home](src/assets/car4.png)
-![Home](src/assets/car5.png)
+
+![Car](src/assets/car3.png)
+
+![Car](src/assets/car4.png)
+
+![Car](src/assets/car5.png)
 
 responsive screen with the biddings modal(unregistered user)
-![Home](src/assets/car7.png)
-![Home](src/assets/car6.png)
+
+![Car](src/assets/car7.png)
+
+![Car](src/assets/car6.png)
 
 The car edit page and responsive car edit page
-![Home](src/assets/caredit.png)
-![Home](src/assets/caredit1.png)
-![Home](src/assets/caredit2.png)
+
+![Car](src/assets/caredit.png)
+
+![Car](src/assets/caredit1.png)
+
+![Car](src/assets/caredit2.png)
 
 </details>
 
@@ -229,34 +264,44 @@ The car edit page and responsive car edit page
 On the profile page you see your profile image, username, how many cars you posted, hwo many followers you have, how mnay followings you have and the bio. Below are all the posts(cars) you created. If you click on the three dots on the right you can change you profile details, username or password. If you are on a profile from a different user you see the button to follow/unfollow this is for small screens the only place you can do this. 
 
 other users profile 
-![Home](src/assets/profile.png)
+
+![Profile](src/assets/profile.png)
 
 your profile
-![Home](src/assets/profile2.png)
+
+![Profile](src/assets/profile2.png)
 
 your responsive profile
-![Home](src/assets/profile3.png)
+
+![Profile](src/assets/profile3.png)
 
 other users responsive profile
-![Home](src/assets/profile4.png)
+
+![Profile](src/assets/profile4.png)
 
 edit profile page
-![Home](src/assets/profile5.png)
+
+![Profile](src/assets/profile5.png)
 
 change username page
-![Home](src/assets/profile6.png)
+
+![Profile](src/assets/profile6.png)
 
 change password page
-![Home](src/assets/profile7.png)
+
+![Profile](src/assets/profile7.png)
 
 responsive edit profile page
-![Home](src/assets/profile8.png)
+
+![Profile](src/assets/profile8.png)
 
 responsive change username page
-![Home](src/assets/profile9.png)
+
+![Profile](src/assets/profile9.png)
 
 responsive change password page
-![Home](src/assets/profile10.png)
+
+![Profile](src/assets/profile10.png)
 
 </details>
 
@@ -267,11 +312,14 @@ responsive change password page
 Here you can create a car and it is responsive. you can add 4 pictures, title, price,year, km and content 
 
 Create product page
-![Home](src/assets/create.png)
+
+![Create](src/assets/create.png)
 
 Responsive create product page
-![Home](src/assets/create2.png)
-![Home](src/assets/create3.png)
+
+![Create](src/assets/create2.png)
+
+![Create](src/assets/create3.png)
 
 </details>
 
@@ -282,13 +330,16 @@ Responsive create product page
 Here you see the favorite sellers component. You can follow a user and the can follow you!
 
 registered user
-![Home](src/assets/fav.png)
+
+![Fav](src/assets/fav.png)
 
 unregistered user
-![Home](src/assets/fav1.png)
+
+![Fav](src/assets/fav1.png)
 
 responsive
-![Home](src/assets/fav2.png)
+
+![Fav](src/assets/fav2.png)
 
 </details>
 
@@ -297,14 +348,19 @@ responsive
 <br>
 
 Here you can sign in and look at the nice image!
-![Home](src/assets/signinn.png)
-![Home](src/assets/signinn1.png)
+
+![Signin](src/assets/signinn.png)
+
+![Signin](src/assets/signinn1.png)
 
 here you can sign up and look at the nice image!
-![Home](src/assets/signupp.png)
-![Home](src/assets/signupp1.png)
+
+![Singup](src/assets/signupp.png)
+
+![Singup](src/assets/signupp1.png)
 
 </details>
+<br>
 
 ### future features
 - chat page between the user's in place of comments
@@ -312,7 +368,6 @@ here you can sign up and look at the nice image!
 - categories for bike's, clothing and many more
 - new design
 - highest bid always up
--
 
 ## 3. Technologies used
 - HTML5 used for markup
@@ -357,6 +412,10 @@ and for the register you can see these errors:
 - This password is too common.
 - This password is entirely numeric.
 
+<details>
+<summary>Tests</summary>
+<br>
+
 If you are nog loggedin you can still click on the posts(car) and see the product, favorite sellers, comments and biddings. but you can't see the form of comments or biddings. You can't see the follow button on the favorite sellers component either.
 
 ![test](src/assets/tcar.png)
@@ -372,7 +431,7 @@ When you click on signup on the navigation you get to the sign up page. And thes
 ![test](src/assets/tsignup.png)
 ![test](src/assets/tsignup2.png)
 ![test](src/assets/tsignup3.png)
-
+</details>
 
 ## 5.Bugs
 - 
@@ -393,7 +452,7 @@ When you click on signup on the navigation you get to the sign up page. And thes
 5. Change the current working directory to the one where you want the cloned directory
 6. Type git clone and paste the URL from the clipboard
 
-$ git clone https://github.com/MustafaSahinci/pp5-frontend.git
+- git clone https://github.com/MustafaSahinci/pp5-frontend.git
 
 7. Press Enter to create your local clone
 
