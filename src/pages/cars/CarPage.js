@@ -31,6 +31,12 @@ function CarPage() {
   const profile_image = currentUser?.profile_image;
   const [biddings, setBiddings] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
+  let hasBid = false
+  hasBid = biddings?.results.map((bid) => {
+    if (bid.owner === currentUser) {
+      return true
+    }
+  })
 
   useEffect(() => {
     const handleMount = async () => {
@@ -51,6 +57,8 @@ function CarPage() {
 
     handleMount();
   }, [id]);
+
+  console.log('biddings', biddings.results)
 
   return (
     <Container>
@@ -114,11 +122,12 @@ function CarPage() {
         </Col>
 
         <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-          {biddings.results.map((bidding) => {
-            <Bidding id={bidding.id} />;
+          {biddings.results.map((Bidding) => {
+            return Bidding.owner === currentUser;
           })}
+          
           <Container className={appStyles.Content}>
-            {currentUser ? (
+            {currentUser && !hasBid ? (
               <BiddingCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}

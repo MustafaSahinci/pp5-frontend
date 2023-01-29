@@ -9,10 +9,9 @@ import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
 
 function BiddingCreateForm(props) {
-  const { car, setCar, setBiddings, profileImage, profile_id } = props;
+  const { car, setCar, setBiddings, profileImage, profile_id, bidding_id} = props;
   const [content, setContent] = useState('');
-  const [bid, setBid] = useState(false);
-
+  
   const handleChange = (event) => {
     setContent(event.target.value);
   };
@@ -37,17 +36,13 @@ function BiddingCreateForm(props) {
         ],
       }));
       setContent('');
-      setBid(true);
-      console.log(setBid);
     } catch (err) {
       console.log(err);
     }
   };
 
-  console.log(bid);
-  console.log(setBid);
 
-  return !bid ? (
+  return !bidding_id ? (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
