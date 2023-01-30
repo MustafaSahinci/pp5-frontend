@@ -129,11 +129,9 @@ paragraph with a message
 
 `<MoreDropdown.js />` - reusable component, used to render the dropdown menu which allows user to edit or delete their own cars, biddings or comments, and also edit their profile or change profile password.
 
-?<FeedbackMsg.js /> - component for displaying feedback messages to the user upon editing/deleting comments, deleting post, updating profile information or a password.?
-
 `<NavBar.js />` - reusable component with the content depending on the login status of the user. For logged in user it shows icon link to the main posts(cars) page, add product link, home link, feed link, saves link, log out link and user avatar/picture(profile). For those who are not logged in, it shows a icon link to the main posts(cars) page and links to sign in or sign up. The component is used on each page of the app.
 
-?<PageNotFound.js /> - specific component for displaying a 404 graphic error message with a return to menu button when user enters the url which does not exist.?
+`<NotFound.js />` - component for displaying a 404 graphic error message when user enters the url which does not exist.
 
 
 ## Back End
